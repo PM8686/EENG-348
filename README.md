@@ -4,14 +4,12 @@ This repository contains the completed assignments for EENG 348: Digital Systems
 
 ## Lab 0: Getting Started
 
-### Summary
 - **Setup Arduino Software**: Installed the Arduino IDE and set up the Arduino Uno.
 - **Write and Run a Program**: Created a simple sketch to print "Hello, world!" to the serial monitor using the Serial library.
 - **Precautions**: Ensured proper handling of the microcontroller boards to avoid static damage and incorrect connections.
 
 ## Lab 1: Assembly Language Programming
 
-### Summary
 - **Part 1: Getting Started with Assembly**: 
   - Wrote an assembly program to add two 8-bit integers and return a 16-bit result.
 - **Part 2: Procedures**:
@@ -23,7 +21,6 @@ This repository contains the completed assignments for EENG 348: Digital Systems
 
 ## Lab 2: Digital I/O
 
-### Summary
 - **Part 1: Digital Input by Polling**:
   - Built a circuit with a push-button switch and configured it as an input with a passive pull-up.
   - Implemented a polling-based approach to read the switch state and debounced the switch.
@@ -36,7 +33,6 @@ This repository contains the completed assignments for EENG 348: Digital Systems
 
 ## Lab 3: Analog I/O and Digital I/O Protocols
 
-### Summary
 - **Part 1: Analog Voltage Input: Photocell**:
   - Created a voltage divider with a photocell and read the analog value using `analogRead()`.
   - Converted the analog voltage to an integer value and displayed it on the serial monitor while controlling an RGB LED's brightness.
@@ -49,7 +45,6 @@ This repository contains the completed assignments for EENG 348: Digital Systems
 
 ## Lab 4: Implementing Concurrency
 
-### Summary
 - **Part 1: Concurrency**:
   - Implemented process management on the Arduino platform, creating and scheduling processes.
   - Developed a system to maintain and switch between multiple processes using timer interrupts.
@@ -59,7 +54,6 @@ This repository contains the completed assignments for EENG 348: Digital Systems
 
 ## Final Project: Braitenberg Vehicles
 
-### Summary
 Implemented autonomous robots inspired by Braitenberg vehicles, exhibiting different behaviors based on light input.
 
 - **Love**: Moves towards light by wiring sensors to motors to steer towards the light source.
