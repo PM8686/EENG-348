@@ -10,37 +10,35 @@ int photocellReading;     // the analog reading from the sensor divider
 int LEDpin = 11;          // connect Red LED to pin 11 (PWM pin)
 int LEDbrightness;        // 
 void setup(void) {
-  // We'll send debugging information via the Serial monitor
+  // send debugging information via the Serial monitor
   Serial.begin(9600); 
 
-  // FOR ANALOG_READ 
-  // // Set ADC reference voltage to AVCC (5V)
-  // ADMUX |= (1 << REFS0);
-  // // Enable ADC and set prescaler to 128 (ADC clock = F_CPU / 128)
-  // ADCSRA |= (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+  // FOR AnalogRead 
+  // Set ADC reference voltage to AVCC (5V)
+  ADMUX |= (1 << REFS0);
+  // Enable ADC and set prescaler to 128 (ADC clock = F_CPU / 128)
+  ADCSRA |= (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 }
 
-// // Function to read ADC value from channel 0
-// uint16_t AnalogRead() {
-//     // Select ADC channel 0
-//     ADMUX &= ~(1 << MUX0);
-//     // Start ADC conversion
-//     ADCSRA |= (1 << ADSC);
-//     // Wait for conversion to complete
-//     while (ADCSRA & (1 << ADSC));
-//     // Return ADC result (10-bit resolution)
-//     return ADC;
-// }
+// Function to read ADC value from channel 0
+uint16_t AnalogRead() {
+    // Select ADC channel 0
+    ADMUX &= ~(1 << MUX0);
+    // Start ADC conversion
+    ADCSRA |= (1 << ADSC);
+    // Wait for conversion to complete
+    while (ADCSRA & (1 << ADSC));
+    // Return ADC result (10-bit resolution)
+    return ADC;
+}
  
 void loop(void) {
   
   // FOR ANALOG_READ 
-  // photocellReading = AnalogRead();
+  photocellReading = AnalogRead();
 
-  photocellReading = analogRead(photocellPin);  
-  // explain how you can implement analogRead() using I/O mapped registers on the AVR (look at the appropriate section of the datasheet for the AVR)
-  // PC0, ADC0
- 
+  // photocellReading = analogRead(photocellPin);  // Arduino's version
+
   Serial.print("Analog reading = ");
   Serial.println(photocellReading);     // the raw analog reading
  

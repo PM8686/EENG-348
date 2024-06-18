@@ -23,45 +23,13 @@ int sign_vary = -1;
 // int dx = velocity/sqrt(2); // 45 degree angle
 // int dy = velocity/sqrt(2); // 45 degree angle
 
-// void setup() {
-//   Serial.begin(9600);
-//  disp.begin(SSD1306_SWITCHCAPVCC);
-// //  disp.begin(0x2)
-//  disp.clearDisplay();
-//  disp.display();
-//  disp.drawLine(0, 0, 127, 63, WHITE);
-// }
 
-// void loop() {
-//   // Serial.println("hi");
-//   // delay(10);
-//   x = x + dx;
-//   y = y + dy;
-//   if (x >= disp.width()-4 || x <= 0 + 4)
-//   {
-//     dx = -1*dx;
-//   }
-//   if (y >= disp.height()-4 || y <= 0 + 4)
-//   {
-//     dy = -1*dy;
-//   }
-//   disp.clearDisplay();
-
-//   disp.fillCircle(x, y, 4, WHITE);
-//   disp.display();
-// }
-
-
-// This is just a code snippet, provided in case it helps you.
 // My setup: This encoder has pin C (middle pin of the three on one side) and 
 // one of the pair on the other side connected to ground.  The other pins are 
-// connected as follows to my Arduino Mega:
+// connected as follows to my Arduino:
 //      'A': digital pin 6
 //      'B': digital pin 7
-//      'press': digital pin 5 ******************************************* (I think this is a button)
-// In "real" code, you'd want a state machine to keep track of the rotation,
-// and only take note of the "forward" or "back" when the encoder is reporting
-// 0 again.
+//      'press': digital pin 5
 
 // Digital pin definitions
 enum enDigitalPins
@@ -93,13 +61,6 @@ static void _ResetPins()
  pinMode(dpInEncoderPress, INPUT);
  digitalWrite(dpInEncoderPress, HIGH);
 }
-
-
-//void _lowlevel_ReadEncoder(int &rotate, int& press)
-//{
-//  rotate = (digitalRead(dpInEncoderB) * 2) + digitalRead(dpInEncoderA);
-//  press = digitalRead(dpInEncoderPress);
-//}
 
 
 void _lowlevel_ReadEncoder(int &rotate, int& press) {
@@ -151,7 +112,6 @@ void ReadEncoder()
 
       disp.fillCircle(x, y, 4, WHITE);
       disp.display();
-    //  Serial.println("2 stuck in do while");
    } while ((Position2 == Position) && (Press2 == Press));
    if (Position2 != Position)
    {
@@ -184,7 +144,6 @@ void ReadEncoder()
 void setup()
 {
    disp.begin(SSD1306_SWITCHCAPVCC);
-  //  disp.begin(0x2)
    disp.clearDisplay();
  disp.display();
  disp.drawLine(0, 0, 127, 63, WHITE);

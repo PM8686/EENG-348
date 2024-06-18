@@ -1,27 +1,23 @@
 #include "testasm.h"
 
-__attribute__((used))
-unsigned int fib(unsigned char a, unsigned char b) {
-  unsigned int out;
+__attribute__((used)) unsigned int fib(unsigned char a, unsigned char b)
+{
+   unsigned int out;
 
-  asm volatile (R"(
+   asm volatile(R"(
 
    rjmp start_of_fib
 
    .data
-   ; any data values/static storage can go here
+   ; any data values/static storage go here
 
    .text
 
 start_of_fib:
-   ; Your assembly language program goes here
-  
    ; Tell the compiler to move the arguments n into a register
-   ;
     mov r24,%1
     push r24; push n onto the stack
 
-   ;
    ; recurse n times:
    cpi r24,0  ; n = 0
    breq case0
@@ -62,12 +58,12 @@ end_of_fib:
    ; -- move r25:r24 to the 16-bit word in variable out
    movw %0,r24
 
-)" : "=w" (out)  /* out is %0, and a 16-bit variable that is modified
-        by the assembly language */
-   : "r" (a), "r" (b)  /* a is %1, b is %2, both are register-sized
-        variables */
-   : "r25", "r24");   /* r24, r25 are modified by this assembly
-       language fragment */
+)" : "=w"(out)                   /* out is %0, and a 16-bit variable that is modified
+                        by the assembly language */
+                : "r"(a), "r"(b) /* a is %1, b is %2, both are register-sized
+                  variables */
+                : "r25", "r24"); /* r24, r25 are modified by this assembly
+                  language fragment */
 
-  return out;
+   return out;
 }
