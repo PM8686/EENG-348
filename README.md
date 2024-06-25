@@ -64,4 +64,3 @@ Implemented autonomous robots inspired by Braitenberg vehicles, exhibiting diffe
 Additional features:
 - **Behavior Switching**: Used a button to switch between different behaviors.
 - **Advanced Interactions**: Incorporated additional components like OLED displays and buzzers to enhance the robots' behaviors.
-- **Inter-robot Interaction**: Experimented with having two robots interact with each other based on their light responses.
